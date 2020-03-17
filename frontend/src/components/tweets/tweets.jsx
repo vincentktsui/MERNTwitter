@@ -6,7 +6,7 @@ class Tweet extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { tweets: [] };
+        this.state = { tweets: [], fetched: false };
     }
 
     componentWillMount() {
@@ -14,10 +14,11 @@ class Tweet extends React.Component {
     }
 
     componentWillReceiveProps(newState) {
-        this.setState({ tweets: newState.tweets });
+        this.setState({ tweets: newState.tweets, fetched: true });
     }
 
     render() {
+        if (!this.state.fetched) return null;
         if (this.state.tweets.length === 0) {
             return <div>There are no Tweets</div>;
         } else {
