@@ -1,5 +1,4 @@
-/config/keys.js
-# /frontend/node_modules
+/config/keys_dev.js
 
 # Logs
 logs
